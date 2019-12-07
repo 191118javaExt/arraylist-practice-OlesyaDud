@@ -5,20 +5,27 @@ import java.util.Random;
 
 import com.revature.list.MyArrayList;
 
+
 public class Driver {
 	
 	private static final int AMOUNT = 1000;
 
 	public static void main(String[] args) {
+		
 		ArrayList<Integer> reglist = new ArrayList<>();
+		
 		MyArrayList mylist = new MyArrayList();
 
+
 		Random r = new Random(System.currentTimeMillis());
+		
 		for(int i = 0; i < AMOUNT; i++) {
 			int val = r.nextInt(AMOUNT);
+			
 			reglist.add(val);
 			mylist.add(val);
 		}
+		
 		
 		long t1 = System.nanoTime();
 		
@@ -31,6 +38,7 @@ public class Driver {
 		}
 		
 		long t2 = System.nanoTime();
+		
 		
 		long regTime = t2 - t1;
 		
@@ -46,7 +54,7 @@ public class Driver {
 		}
 		
 		t2 = System.nanoTime();
-		
+	
 		long myTime = t2 - t1;
 		
 		System.out.println("It took ArrayList " + regTime + " ns to complete.");
@@ -56,4 +64,5 @@ public class Driver {
 		
 		System.out.printf("The original ArrayList is %.2f%% faster.%n", ratio * 100);
 	}
+
 }
